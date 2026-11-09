@@ -1,0 +1,328 @@
+{
+  "data": {
+    "rows": 48000,
+    "train": 32000,
+    "validation": 8000,
+    "test": 8000,
+    "unique_leads": 48000,
+    "assignment": "uniform, randomized across 3 arms",
+    "date_range": "January-December 2025"
+  },
+  "arms": [
+    "Standard",
+    "Cash-flow experience",
+    "Rewards experience"
+  ],
+  "results": {
+    "validation": {
+      "logistic": {
+        "policy": {
+          "contacts": 2600,
+          "budget_spent": 2319.6,
+          "estimated_incremental": 51061.03,
+          "cashflow_selected": 1351,
+          "rewards_selected": 1249
+        },
+        "simulation_oracle": {
+          "baseline": 250203.98,
+          "selected": 274870.26,
+          "incremental": 24666.28
+        },
+        "off_policy_ipw": {
+          "estimate": 34080.96,
+          "standard_error": 30336.44,
+          "ci95_low": -25378.47,
+          "ci95_high": 93540.39
+        },
+        "offer_model_fit": {
+          "Standard": {
+            "n": 2673,
+            "observed_conversion": 0.10999,
+            "brier": 0.0971,
+            "logloss": 0.34263
+          },
+          "Cash-flow experience": {
+            "n": 2681,
+            "observed_conversion": 0.14137,
+            "brier": 0.12044,
+            "logloss": 0.40394
+          },
+          "Rewards experience": {
+            "n": 2646,
+            "observed_conversion": 0.13076,
+            "brier": 0.11315,
+            "logloss": 0.38563
+          }
+        }
+      },
+      "boosting": {
+        "policy": {
+          "contacts": 2600,
+          "budget_spent": 2333.2,
+          "estimated_incremental": 42087.43,
+          "cashflow_selected": 1317,
+          "rewards_selected": 1283
+        },
+        "simulation_oracle": {
+          "baseline": 250203.98,
+          "selected": 266395.54,
+          "incremental": 16191.56
+        },
+        "off_policy_ipw": {
+          "estimate": 43153.23,
+          "standard_error": 32009.78,
+          "ci95_low": -19585.94,
+          "ci95_high": 105892.4
+        },
+        "offer_model_fit": {
+          "Standard": {
+            "n": 2673,
+            "observed_conversion": 0.10999,
+            "brier": 0.09752,
+            "logloss": 0.34468
+          },
+          "Cash-flow experience": {
+            "n": 2681,
+            "observed_conversion": 0.14137,
+            "brier": 0.12082,
+            "logloss": 0.40527
+          },
+          "Rewards experience": {
+            "n": 2646,
+            "observed_conversion": 0.13076,
+            "brier": 0.11326,
+            "logloss": 0.38592
+          }
+        }
+      }
+    },
+    "test": {
+      "logistic": {
+        "policy": {
+          "contacts": 2600,
+          "budget_spent": 2290.8,
+          "estimated_incremental": 50146.84,
+          "cashflow_selected": 1423,
+          "rewards_selected": 1177
+        },
+        "simulation_oracle": {
+          "baseline": 246412.56,
+          "selected": 269896.38,
+          "incremental": 23483.81
+        },
+        "off_policy_ipw": {
+          "estimate": 766.77,
+          "standard_error": 33814.79,
+          "ci95_low": -65510.22,
+          "ci95_high": 67043.76
+        },
+        "offer_model_fit": {
+          "Standard": {
+            "n": 2719,
+            "observed_conversion": 0.11585,
+            "brier": 0.10147,
+            "logloss": 0.35393
+          },
+          "Cash-flow experience": {
+            "n": 2592,
+            "observed_conversion": 0.14352,
+            "brier": 0.12192,
+            "logloss": 0.40708
+          },
+          "Rewards experience": {
+            "n": 2689,
+            "observed_conversion": 0.13128,
+            "brier": 0.11301,
+            "logloss": 0.38384
+          }
+        }
+      },
+      "boosting": {
+        "policy": {
+          "contacts": 2600,
+          "budget_spent": 2325.2,
+          "estimated_incremental": 41733.8,
+          "cashflow_selected": 1337,
+          "rewards_selected": 1263
+        },
+        "simulation_oracle": {
+          "baseline": 246412.56,
+          "selected": 262070.99,
+          "incremental": 15658.42
+        },
+        "off_policy_ipw": {
+          "estimate": -21806.94,
+          "standard_error": 32948.77,
+          "ci95_low": -86386.52,
+          "ci95_high": 42772.64
+        },
+        "offer_model_fit": {
+          "Standard": {
+            "n": 2719,
+            "observed_conversion": 0.11585,
+            "brier": 0.1018,
+            "logloss": 0.35556
+          },
+          "Cash-flow experience": {
+            "n": 2592,
+            "observed_conversion": 0.14352,
+            "brier": 0.12228,
+            "logloss": 0.40884
+          },
+          "Rewards experience": {
+            "n": 2689,
+            "observed_conversion": 0.13128,
+            "brier": 0.11307,
+            "logloss": 0.38456
+          }
+        }
+      }
+    }
+  },
+  "assumptions": {
+    "monthly_prospect_flow": 4000,
+    "holdout_contacts_cap": 2600,
+    "holdout_contact_budget": 2600,
+    "cashflow_cost_per_contact": 0.7,
+    "rewards_cost_per_contact": 1.1,
+    "cashflow_cost_per_active_account": 18,
+    "incremental_rewards_per_annual_spend_dollar": 0.0012,
+    "model_outcome": "application conversion",
+    "financial_horizon": "first-year modeled contribution, not lifetime value"
+  },
+  "selected": "logistic",
+  "model_selection": {
+    "rule": "Prefer logistic unless boosting has statistically persuasive positive incremental validation IPW uplift (one-sided positive 95% two-sided lower bound and 10% uplift).",
+    "boosting_minus_logistic_validation_IPW": 9072.27,
+    "se": 24699.02,
+    "ci95_lower": -39337.81,
+    "ci95_upper": 57482.35,
+    "caveat": "High variance and correlated comparison; do not treat as real-world evidence."
+  },
+  "holdout_observed_arms": [
+    {
+      "assigned_offer": "Cash-flow experience",
+      "leads": 2592,
+      "applications": 372,
+      "approved": 238,
+      "activated": 201,
+      "synthetic_contribution": 88285.7,
+      "application_rate": 0.14351851851851852,
+      "approval_rate": 0.6397849462365591,
+      "activation_rate": 0.8445378151260504
+    },
+    {
+      "assigned_offer": "Rewards experience",
+      "leads": 2689,
+      "applications": 353,
+      "approved": 243,
+      "activated": 200,
+      "synthetic_contribution": 78479.08,
+      "application_rate": 0.1312755671253254,
+      "approval_rate": 0.6883852691218131,
+      "activation_rate": 0.823045267489712
+    },
+    {
+      "assigned_offer": "Standard",
+      "leads": 2719,
+      "applications": 315,
+      "approved": 206,
+      "activated": 177,
+      "synthetic_contribution": 92429.8,
+      "application_rate": 0.11585141596175064,
+      "approval_rate": 0.653968253968254,
+      "activation_rate": 0.8592233009708737
+    }
+  ],
+  "experiment_significance": {
+    "Cash-flow experience": {
+      "control_conversion": 0.11585,
+      "test_conversion": 0.14352,
+      "absolute_percentage_point_lift": 2.767,
+      "relative_lift_pct": 23.88,
+      "ci95_pp": [
+        0.959,
+        4.575
+      ],
+      "p_value_unadjusted": 0.00271,
+      "caution": "Exploratory two-sided normal approximation; no multiple-comparison correction."
+    },
+    "Rewards experience": {
+      "control_conversion": 0.11585,
+      "test_conversion": 0.13128,
+      "absolute_percentage_point_lift": 1.542,
+      "relative_lift_pct": 13.31,
+      "ci95_pp": [
+        -0.212,
+        3.296
+      ],
+      "p_value_unadjusted": 0.08478,
+      "caution": "Exploratory two-sided normal approximation; no multiple-comparison correction."
+    }
+  },
+  "experiment_design": {
+    "alpha_per_comparison": 0.05,
+    "power_target": 0.8,
+    "required_per_arm_for_1pp_abs_lift": 16576,
+    "required_per_arm_for_2pp_abs_lift": 4292,
+    "caution": "Illustrative two-arm power; multiple arms require multiplicity adjustment; conversions not enough to prove profitable lift."
+  },
+  "holdout_benchmarks": {
+    "all_standard": {
+      "baseline": 246412.56,
+      "selected": 246412.56,
+      "incremental": 0.0
+    },
+    "random_budgeted": {
+      "baseline": 246412.56,
+      "selected": 249772.77,
+      "incremental": 3360.21
+    },
+    "selected_model": {
+      "baseline": 246412.56,
+      "selected": 269896.38,
+      "incremental": 23483.81
+    },
+    "unattainable_simulation_oracle": {
+      "baseline": 246412.56,
+      "selected": 278272.89,
+      "incremental": 31860.33
+    },
+    "all_cashflow_unconstrained": {
+      "baseline": 246412.56,
+      "selected": 270510.61,
+      "incremental": 24098.05
+    },
+    "all_rewards_unconstrained": {
+      "baseline": 246412.56,
+      "selected": 239970.82,
+      "incremental": -6441.74
+    }
+  },
+  "segments": [
+    {
+      "segment": "Cash-flow constrained",
+      "leads": 3125,
+      "targeted": 971,
+      "cashflow": 951,
+      "rewards": 20,
+      "simulated_expected_incremental": 12515.53
+    },
+    {
+      "segment": "Growth-focused",
+      "leads": 2614,
+      "targeted": 690,
+      "cashflow": 391,
+      "rewards": 299,
+      "simulated_expected_incremental": -798.75
+    },
+    {
+      "segment": "Spend-intensive",
+      "leads": 2261,
+      "targeted": 939,
+      "cashflow": 81,
+      "rewards": 858,
+      "simulated_expected_incremental": 11767.03
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "decisioniq": {
+      "type": "streamable-http",
+      "url": "__REPLACE_WITH_YOUR_HTTPS_DEPLOYED_MCP_ENDPOINT__",
+      "extensions": {"com.openai": {"auth": {"type": "none"}}}
+    }
+  }
+}

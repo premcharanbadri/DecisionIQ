@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#081620" />
+  <title>DecisionIQ · AI Strategy Copilot</title>
+  <link rel="stylesheet" href="/assets/style.css" />
+</head>
+<body>
+<div class="app-layout">
+  <aside class="sidepanel">
+    <div class="logo"><div class="logo-mark">D<span>Q</span></div><div><strong>DecisionIQ</strong><small>BUSINESS STRATEGY COPILOT</small></div></div>
+    <div class="division">WORKSPACE</div>
+    <button class="navitem selected"><span class="navicon">◈</span> CardGrowth Strategy <span class="navcheck">●</span></button>
+    <div class="division top24">CAPABILITIES</div>
+    <button class="navitem tool-preset" data-prompt="Diagnose the acquisition funnel and explain where to investigate first."><span class="navicon">▤</span> Funnel diagnostics</button>
+    <button class="navitem tool-preset" data-prompt="Which small-business segments have the largest estimated offer response? Challenge the assumptions."><span class="navicon">◎</span> Customer segments</button>
+    <button class="navitem tool-preset" data-prompt="Evaluate the impact of a $100 annual card fee on modeled contribution."><span class="navicon">◇</span> Pricing scenarios</button>
+    <button class="navitem tool-preset" data-prompt="Optimize a $2600 marketing budget and explain the risks."><span class="navicon">◈</span> Campaign optimizer</button>
+    <button class="navitem tool-preset" data-prompt="Evaluate the cash-flow A/B test and tell me if we should roll out."><span class="navicon">▥</span> Experiment evidence</button>
+    <div class="sidebar-bottom">
+      <div class="info-panel"><div class="eyebrow">DATA FOUNDATION</div><strong>8,000 synthetic prospects</strong><span>Nov–Dec 2025 randomized holdout</span><span class="source-label">Source · CardGrowth Project 3</span></div>
+      <p>Read-only strategy simulation. No credit decisions, customer data, or observed banking revenue.</p>
+    </div>
+  </aside>
+  <main class="workspace">
+    <header class="topbar"><div class="breadcrumb">Workspaces <span>/</span> <b>CardGrowth Strategy</b></div><div class="top-status"><span class="live-dot"></span><span id="modeStatus">Checking environment</span></div></header>
+    <div class="main-content">
+      <div class="hero"><div class="eyebrow teal">STRATEGIC DECISION INTELLIGENCE <span class="line"></span> v0.1 MVP</div><h1>Make the <em>better</em><br/>business decision.</h1><p>Investigate growth, simulate pricing, optimize acquisition spend, and challenge the evidence—using transparent analytical tools and optional frontier-model reasoning.</p>
+        <div class="hero-tags"><span>◉ Tool-grounded analysis</span><span>◇ Risk-adjusted economics</span><span>▣ Reproducible evidence</span></div>
+      </div>
+      <div class="section-row"><h2>Acquisition baseline</h2><span>Simulated out-of-time holdout</span></div>
+      <div class="metrics">
+        <div class="metric-card"><div class="eyebrow">STANDARD OFFER</div><div class="number" id="statStandard">—</div><div class="small">Application conversion</div><div class="mini-track"><span class="bar-one" id="barStandard"></span></div></div>
+        <div class="metric-card"><div class="eyebrow">CASH-FLOW EXPERIENCE</div><div class="number" id="statCash">—</div><div class="small">Application conversion</div><div class="mini-track"><span class="bar-two" id="barCash"></span></div></div>
+        <div class="metric-card"><div class="eyebrow">REWARDS EXPERIENCE</div><div class="number" id="statRewards">—</div><div class="small">Application conversion</div><div class="mini-track"><span class="bar-three" id="barRewards"></span></div></div>
+      </div>
+      <div class="section-row sessions"><h2>Decision copilot</h2><button class="subtle" id="clearBtn">↻ &nbsp; Clear conversation</button></div>
+      <div class="copilot-box">
+        <div class="chat-head"><div class="assistant-glyph">✳</div><div><b>DecisionIQ Analyst</b><div class="tiny" id="assistantMode">Offline, deterministic tools</div></div><div class="head-right"><span class="active-pill">● Active</span></div></div>
+        <div class="chat-history" id="chatHistory" aria-live="polite">
+          <div class="message assistant-message"><div class="bubble-icon">✳</div><div class="message-content"><strong>What would you like to investigate?</strong><p>I can run five read-only analytical tools against the synthetic CardGrowth data. Each answer includes its tool evidence, assumptions, and a recommendation that you can challenge.</p><div class="prompt-grid"><button class="suggestion" data-prompt="Does the cash-flow offer have credible evidence of higher application conversion?">Evaluate cash-flow lift <span>↗</span></button><button class="suggestion" data-prompt="Optimize a $2600 marketing budget and explain whether the benefit is proven.">Optimize $2,600 budget <span>↗</span></button><button class="suggestion" data-prompt="What if we introduce a $100 annual fee?">Simulate $100 fee <span>↗</span></button><button class="suggestion" data-prompt="Which small-business segment should we test first?">Prioritize segments <span>↗</span></button></div></div></div>
+        </div>
+        <div class="chat-composer">
+          <div id="accessWrap" class="access-wrap" hidden><label for="accessToken">Private demo access token (never saved)</label><input id="accessToken" type="password" placeholder="Required for paid frontier-model mode" autocomplete="off" /></div>
+          <div class="input-row"><textarea id="chatInput" rows="2" maxlength="1200" placeholder="Ask a strategic question, e.g. Is the cash-flow offer worth scaling?" aria-label="Your question"></textarea><button class="send-button" id="sendBtn" aria-label="Send question">↗</button></div>
+          <div class="composer-meta"><span><i>●</i> <span id="disclaimerMode">Synthetic data · No API key needed</span></span><span>Enter to send · Shift+Enter for newline</span></div>
+        </div>
+      </div>
+      <section class="controls"><div class="section-row"><h2>Scenario workbench</h2><span>Deterministic outputs, no LLM arithmetic</span></div>
+        <div class="control-grid"><div class="workbench-card"><div class="eyebrow">CAMPAIGN ALLOCATION</div><h3>Explore budget trade-offs</h3><label>Acquisition budget <strong id="budgetLabel">$2,600</strong></label><input id="budgetRange" type="range" min="0" max="10000" step="100" value="2600" /><button class="outline-button" id="budgetRun">Run budget optimization ↗</button></div>
+        <div class="workbench-card"><div class="eyebrow">PRICING HYPOTHESIS</div><h3>Change the annual fee</h3><label>Card annual fee <strong id="feeLabel">$0</strong></label><input id="feeRange" type="range" min="0" max="300" step="10" value="0" /><button class="outline-button" id="feeRun">Run pricing sensitivity ↗</button></div></div>
+      </section>
+      <footer>DecisionIQ • Independent synthetic case study • Research and educational use only. Do not use for real lending, credit pricing, or customer-level decisions.</footer>
+    </div>
+  </main>
+  <aside class="evidence-panel"><div class="evidence-head"><div class="eyebrow teal">THE DECISION TRAIL</div><h2>Evidence, not guesses.</h2><p>Every numerical claim should be backed by the analytical tool that computed it.</p></div>
+  <div class="evidence-content"><div class="trace-empty" id="traceEmpty"><div class="empty-icon">≡</div><b>No analysis executed yet</b><p>Ask a question or run a scenario to see exact tool inputs and outputs.</p></div><div id="traceItems"></div></div>
+  <div class="evidence-foot"><div class="risk-status"><span class="warning-mark">!</span><div><strong>Decision safeguard</strong><p>Predicted value ≠ proven causal benefit. An experimental business case must measure uncertainty and customer impact.</p></div></div><a href="/api/catalog" target="_blank" rel="noopener noreferrer">Inspect tool schemas ↗</a></div></aside>
+</div>
+<script src="/assets/app.js" defer></script>
+</body></html>

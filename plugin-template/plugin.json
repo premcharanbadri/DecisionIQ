@@ -1,0 +1,7 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "decisioniq-strategy",
+  "version": "0.1.0",
+  "description": "Explainable synthetic small-business card acquisition, pricing, and marketing strategy analysis. Five reproducible, read-only analytic tools. Not for lending decisions.",
+  "keywords": ["business analytics", "financial modeling", "experimentation", "portfolio strategy"]
+}
