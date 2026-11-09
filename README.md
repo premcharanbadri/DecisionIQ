@@ -1,4 +1,7 @@
-# DecisionIQ Copilot - Business Strategy as a Tool-Grounded AI Product
+# DecisionIQ Copilot : Business Strategy as a Plug-in Tool
+
+
+##### Live Demo: https://premcharanbadri.github.io/DecisionIQ/
 
 
 ## Project Overview
