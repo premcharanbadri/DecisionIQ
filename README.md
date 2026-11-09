@@ -1,52 +1,7 @@
-# DecisionIQ — Free GitHub Pages Showcase + Full Python Copilot
+# DecisionIQ Copilot - Business Strategy as a Tool-Grounded AI Product
 
-> **Two clearly separated experiences:** the public GitHub Pages **CardGrowth strategy lab** is real, browser-executable static analytics. The complete DecisionIQ conversational copilot is **locally runnable Python/ FastAPI source**, with optional frontier-model API and MCP integration. **The GitHub Pages demo does NOT host the DecisionIQ Python/chat backend.** All datasets and business results are synthetic.
 
-## Publish your zero-charge demo
-
-1. Extract this ZIP. Its contents (not the enclosing ZIP) are the repository root.
-2. Create a **public** GitHub repository named `decisioniq-copilot` using https://github.com/new. Do not add an initial README because one is already included.
-3. Upload all extracted files and directories, maintaining the folder structure. Alternatively use Git CLI:
-
-```bash
-git init
-git add .
-git commit -m "Publish DecisionIQ portfolio and static CardGrowth lab"
-git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/decisioniq-copilot.git
-git push -u origin main
-```
-
-4. In GitHub open repository **Settings → Pages → Build and deployment**. Choose **Deploy from a branch**, **main**, **/docs**, then **Save**.
-5. Open `https://YOUR_USERNAME.github.io/decisioniq-copilot/`. This displays the portfolio landing page. Click **Launch live strategy lab** to open `docs/lab/index.html`.
-6. Verify budget/offer sliders and interactive calculations; verify that the source link returns to the GitHub repository. Replace `YOUR_USERNAME` in resume links; never commit `.env`, tokens or API keys.
-
-### Live demo structure
-
-- `docs/index.html` — *new* responsive landing page, with accurate separation between the hosted static lab and the local Python copilot.
-- `docs/lab/index.html` — original CardGrowth AI static decision lab (prebuilt and interactive).
-- `docs/lab/assets/data.json` — precomputed synthetic CardGrowth scenario data.
-- `docs/preview.png` — screenshot of the actual, separately runnable DecisionIQ interface.
-
-The `docs/` folder is a static public demo. FastAPI endpoints such as `/api/chat` will **not** work on GitHub Pages, because GitHub Pages does not run Python servers.
-
-## Run the complete DecisionIQ copilot locally (free offline mode)
-
-```bash
-python -m pip install -r requirements-local.txt
-python -m unittest discover -s tests -v
-uvicorn main:app --reload --port 8080
-```
-
-Open `http://localhost:8080`. This is a separate application from the static portfolio pages. To optionally use frontier-model reasoning, follow the existing instructions below and use a private API key; model usage may incur charges.
-
----
-
-# DecisionIQ Copilot — Business Strategy as a Tool-Grounded AI Product
-
-**Status:** runnable local portfolio MVP. **Not hosted or publicly published.** Built as an independent continuation of CardGrowth AI Project 3, not a record of TCS / Globe / Capital One client deployment.
-
-## 60-second overview
+## Project Overview
 
 DecisionIQ makes business strategy analysis conversational while keeping numerical facts in **five deterministic, testable Python tools**. It is available in two modes:
 
@@ -59,7 +14,7 @@ A second, **optional MCP adapter** exposes the same read-only tools through Stre
 
 ## Reuses *actual* project evidence
 
-`artifacts/holdout_offer_scoring.csv` and `artifacts/metrics.json` are original **CardGrowth AI Project 3** outputs. They contain **8,000 synthetic prospects**, original offer-response estimates and randomized assignment outcomes, not commercial data. Outputs are reproducible through the original CardGrowth pipeline; the copied artifacts are frozen snapshots for a fast server.
+`artifacts/holdout_offer_scoring.csv` and `artifacts/metrics.json` are original **CardGrowth AI Project** outputs. They contain **8,000 synthetic prospects**, original offer-response estimates and randomized assignment outcomes, not commercial data. Outputs are reproducible through the original CardGrowth pipeline; the copied artifacts are frozen snapshots for a fast server.
 
 | Tool | Question it answers | Verified baseline |
 |---|---|---|
@@ -176,5 +131,3 @@ decisioniq_copilot/
 ├── Dockerfile
 └── requirements*.txt
 ```
-
-This is an educational portfolio product, not banking software. Never upload client records or real prospect/credit data into the public app. Credit risk, adverse-action, fair-lending, security and privacy reviews would be mandatory for any real issuer integration.
